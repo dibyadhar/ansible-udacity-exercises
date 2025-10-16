@@ -1,0 +1,11 @@
+- name: Copy a file from source to destination
+  become: true
+  hosts: aws
+  tasks:
+    - name: Copy file with owner and permissions
+      copy:
+        src: testfile.txt
+        dest: /etc/testfile.txt
+        owner: ec2-user
+        group: ec2-user
+        mode: '0644'

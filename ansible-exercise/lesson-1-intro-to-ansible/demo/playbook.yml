@@ -1,0 +1,23 @@
+- name: demo play book not using FQCN just shotname for task
+  hosts: aws
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: ping host machines
+      ping:
+      register: ping_output
+    
+    - name: Output results
+      debug:
+        msg: "{{ ping_output }}"
+
+    - name: find loadaverage
+      ansible.builtin.shell:
+        cmd: uptime
+      register: loadave
+
+    -  name: show load on machine
+       debug:
+         msg: "{{ loadave }}"
+        

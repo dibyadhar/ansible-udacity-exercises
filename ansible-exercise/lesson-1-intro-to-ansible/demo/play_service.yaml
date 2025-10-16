@@ -1,0 +1,20 @@
+- name: orchestrate a service in  aws webserver
+  hosts: aws
+  become: true
+  gather_facts: false
+  tasks:
+    - name: create admin user
+      user:
+        name: admin
+        state: present
+        uid: 5001
+
+    - name: install ntp
+      yum:
+        name: chrony.x86_64 
+        state: installed
+
+    - name: start chrony.x86_64
+      service:
+        name: chrony.x86_64
+        state: started

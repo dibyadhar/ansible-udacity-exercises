@@ -1,0 +1,10 @@
+---
+# tasks file for apache
+- name: install apache
+  include_tasks: install.yml
+
+- name: start apache
+  include_tasks: service.yml
+
+- name: upload config file and restart
+  include_tasks: config.yml

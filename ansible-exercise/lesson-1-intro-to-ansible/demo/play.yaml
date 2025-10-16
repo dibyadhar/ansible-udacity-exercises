@@ -1,0 +1,10 @@
+- name: My first play
+  become: true
+  hosts: aws
+  tasks:
+    - name: ping my hosts
+      ansible.builtin.ping:
+
+    - name: print message 
+      ansible.builtin.debug:
+        msg: hello world

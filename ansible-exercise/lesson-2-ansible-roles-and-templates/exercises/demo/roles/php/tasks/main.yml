@@ -1,0 +1,5 @@
+---
+# tasks file for php
+
+- name: install php
+  include_tasks: install.yml

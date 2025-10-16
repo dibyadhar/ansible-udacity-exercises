@@ -1,0 +1,16 @@
+
+- name: Upgrade all packages
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+
+- name: Install Package 
+  ansible.builtin.dnf:
+    name: /usr/bin/cowsay
+    state: present
+
+- name: Install the latest version of Apache
+  ansible.builtin.dnf:
+    name: httpd
+    state: latest
+

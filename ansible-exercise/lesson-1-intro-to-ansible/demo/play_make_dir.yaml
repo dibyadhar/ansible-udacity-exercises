@@ -1,0 +1,19 @@
+- name: make a directory in remote machines
+  hosts: aws
+  become: true
+  tasks:
+    - name: This task will always make changes to the system
+      ansible.builtin.command: uptime
+      check_mode: false
+
+    - name: create a new srv directory
+      ansible.builtin.file:
+        path: /srv/ansible
+        state: directory
+        mode: '0755'
+
+
+  
+    
+    
+    

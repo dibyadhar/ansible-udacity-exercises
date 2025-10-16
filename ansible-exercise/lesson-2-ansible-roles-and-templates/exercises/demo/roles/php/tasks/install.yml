@@ -1,0 +1,9 @@
+- name: install php
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+     - php
+     - cowsay
+     - nmap
+  notify: restart apache service
